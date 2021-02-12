@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Work 3</title>
+    <link href="https://unpkg.com/tailwindcss@%5E2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div class="" id="app">
+
+        <div class="bg-red-50 text-red-800 flex justify-center items-center">
+
+            <div class="my-10">
+
+                <div class="flex justify-center items-center">
+                    <p class="text-3xl py-5 font-bold">Dogs Photo Gallery ({{countUndone}})</p>
+                </div>
+
+                <ul class="grid grid-cols-3 lg:grid-cols-3">
+                    <li v-for="(task,index) in tasks" :class="{done: tasks.done}">
+
+                        <div class="py-6 px-6">
+                            <div class="py-4 px-4 border rounded-sm border-red-200">
+
+                                <button v-on:click="toggleDone(index)">
+                                    <img v-bind:src="task.imgUrl" alt="" class="w-96 h-full">
+                                </button>
+
+                                <p class="text-xl pr-2 pt-4 font-bold flex justify-center items-center">
+                                    {{task.title}}
+                                    <span v-show="task.done" class="material-icons">
+                                        favorite
+                                    </span>
+                                </p>
+                            </div>
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- my main.js -->
+    <script src="./main.js"></script>
+</body>
+
+</html>
